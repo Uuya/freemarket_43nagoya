@@ -8,10 +8,11 @@ class MembershipController < Devise::RegistrationsController
 
   def create
     total_sign_up_params(sign_up_params)
-    if build_resource(sign_up_params).valid?(:registration_step_1)
+    if build_resource(sign_up_params).valid?(:registration_step_1) && verify_recaptcha
       build_resource(sign_up_params)
       redirect_to  phone_new_path
     else
+      resource_class.new(sign_up_params)
       render  membership_new_path
     end
   end

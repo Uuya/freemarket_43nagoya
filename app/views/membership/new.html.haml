@@ -53,6 +53,8 @@
             - resource.errors.full_messages_for(:password_confirmation).each do |message|
               .validation-error-mesage
                 = message
+            = flash[:recaptcha_error]
+            = recaptcha_tags
           .main-section__form-content-group
           = f.submit '次へ進む', class: 'main-section__form-content-submit'
 
