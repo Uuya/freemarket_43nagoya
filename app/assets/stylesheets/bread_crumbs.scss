@@ -7,10 +7,27 @@
 
   .breadcrumbs {
     overflow: visible;
-    width: 1000px;
+    width: 1020px;
     margin: 0 auto;
     padding: 17px 0 16px;
     white-space: normal;
+    @include max-screen($lg) {
+      width: 700px;
+    }
+    @include max-screen($sm) {
+      width: 500px;
+    }
+    @include max-screen($xs) {
+      width: 100%;
+      padding: 17px 8px 16px;
+    }
+    a {
+      color: #333;
+      &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+    }
   }
   .current{
     font-weight: bold;

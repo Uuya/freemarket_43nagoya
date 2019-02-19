@@ -102,17 +102,17 @@
       .main__section__inner__form__profits__label
         販売利益
       #profits.main__section__inner__form__profits__number -
-  - if request.path_info == new_product_path
-    .main__section__inner.clearfix
+- if request.path_info == new_product_path
+  .main__section__inner.clearfix
     %p
-    禁止されている出品、行為を必ずご確認ください。
-    %br/
-    またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-    %br/
-    また、出品をもちまして加盟店規約に同意したことになります。
+      禁止されている出品、行為を必ずご確認ください。
+    %p
+      またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+    %p
+      また、出品をもちまして加盟店規約に同意したことになります。
     = f.submit "出品する", class: "button"
-    = link_to "戻る", :back, {class: "back"}
-  - else
-    .main__section__inner.clearfix
+    = link_to "もどる", :back, {class: "back"}
+- else
+  .main__section__inner.clearfix
     = f.submit "変更する", class: "button"
     = link_to "キャンセル", :back, {class: "back"}

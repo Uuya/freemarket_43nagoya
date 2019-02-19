@@ -26,7 +26,7 @@
     %span.item-container__price-tax (税込)
     %span.item-container__price-fee
       = @product.shipping_burden == "送料込み（出品者負担）" ? "送料込み" : "着払い"
-- if current_user.id == @product.seller_id
+- if user_signed_in? && current_user.id == @product.seller_id
   = render "my_product"
 - else
   = render "otheruser_product"

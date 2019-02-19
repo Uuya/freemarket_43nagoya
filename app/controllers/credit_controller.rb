@@ -19,11 +19,13 @@ class CreditController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-        Payjp::Customer.create(
-          id:   current_user.id,
-          card: params[:"payjp-token"],
-        )
+        if params[:"payjp-token"]
+          Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+          Payjp::Customer.create(
+            id:   current_user.id,
+            card: params[:"payjp-token"]
+          )
+        end
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!

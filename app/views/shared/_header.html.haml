@@ -11,6 +11,10 @@
               = link_to "ログイン", user_session_path, class: "main-header__btn"
             %li
               = link_to "新規会員", new_user_registration_path, class: "main-header__signup"
+        - else
+          = link_to user_path(current_user.id), class: "main-header__mypage" do
+            .right-box-avatar
+              = image_tag ""
       %form.search-box
         %input.search-form{type: "search", name: "keyword", placeholder: "キーワードから探す"}
         / = form_for [] do |f|
@@ -68,13 +72,26 @@
                 = link_to "ブランド一覧"
 
       %nav.right-box
-        %ul.header-nav
-          %li
-            = link_to "マイページ", user_path(current_user.id), class: "main-header__mypage" if user_signed_in?
-          %li
-            = link_to "お知らせ", "#", class: "main-header__nav" if user_signed_in?
-          %li
-            = link_to "やることリスト", "#", class: "main-header__nav" if user_signed_in?
+        %ul
+
+          - if user_signed_in?
+            %li
+              = link_to user_path(current_user.id), class: "main-header__mypage" do
+                .right-box-avatar
+                  = image_tag ""
+                .right-box-mypage
+                  マイページ
+            %li
+              = link_to "#", class: "main-header__nav" do
+                %i.far.fa-bell
+                .right-box-mypage
+                  お知らせ
+            %li
+              = link_to "#", class: "main-header__nav" do
+                %i.fas.fa-check
+                .right-box-mypage
+                  やることリスト
+
           %li
             = link_to "ログイン", user_session_path, class: "main-header__btn" unless user_signed_in?
           %li

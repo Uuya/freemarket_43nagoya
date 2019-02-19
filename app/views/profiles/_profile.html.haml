@@ -3,6 +3,7 @@
   = form_for @user, url: { controller: :profiles, action: :update } do |f|
     .profile__header
       .profile__header__userImage
+        =image_tag @user.image if @user.image
       = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: "profile__header__userName"
       - @user.errors.full_messages_for(:nickname).each do |message|
         .validation-error-mesage

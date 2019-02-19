@@ -1,5 +1,9 @@
 #item-container
-  = link_to "購入画面に進む", "", { class: "item-container__buy" }
+  - unless @product.buyer_id
+    = link_to "購入画面に進む", purchase_path(@product.id), { class: "item-container__buy" }
+  - else
+    .item-container__sold
+      売り切れました
   %table.item-container__main-table_sm
     = render "product_table"
   .item-container__price_sm
@@ -52,7 +56,8 @@
 .item-exhibitor
   %section.item-exhibitor__item-box
     %h2
-      = link_to "#{@product.seller.nickname}さんのその他の出品"
+      = link_to user_profile_path(@product.seller) do
+        = "#{@product.seller.nickname}さんのその他の出品"
     .item-exhibitor__item-box-content.clearfix
       = render @products
     %section.item-exhibitor__item-box

@@ -25,5 +25,8 @@
         %h3.myPage__content__bottom__container__tab__purchase__font 取引中
       .myPage__content__bottom__container__tab__purchased.myPage__content__bottom__container__tab__purchased--display
         %h3.myPage__content__bottom__container__tab__purchased__font 過去の取引
-    .myPage__content__top__container__purchase__show 取引中の商品がありません
-    .myPage__content__top__container__purchased__show 過去に取引した商品がありません
+    %ul.myPage__content__top__container__purchase__show
+      = 取引中の商品がありません unless @user.bought_products
+      = render partial: "users/bought_product", locals: {bought_products: @user.bought_products}
+    .myPage__content__top__container__purchased__show
+      過去に取引した商品がありません

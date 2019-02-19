@@ -1,10 +1,13 @@
 .modalwin-hide {
   height: 300px;
-  width: 500px;
+  max-width: 500px;
   background-color: $white;
   margin: 40px auto;
   display: none;
   z-index: 10000;
+  @include max-screen($xs) {
+    margin: 40px 16px;
+  }
 }
 
 .overlay {
@@ -33,6 +36,7 @@
       text-align: center;
       font-size: 15px;
       padding-bottom: 117px;
+
     }
   }
   &__btn {
@@ -44,8 +48,10 @@
     border-color: $lightGray;
     &__confirm {
       line-height: 53px;
-      margin: 0 70px;
+      margin: 0 auto;
       color: black;
+      display: block;
+      text-align: center;
     }
   }
 }
@@ -58,8 +64,10 @@
   border-width: 1px;
   border-color: $lightGray;
   &__back {
+    display: block;
+    text-align: center;
     line-height: 53px;
-    margin: 0 90px;
+    margin: 0 auto;
     color: black;
   }
 }

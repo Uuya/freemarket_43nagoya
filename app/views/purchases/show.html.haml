@@ -1,0 +1,66 @@
+= render "logo/header"
+
+%main
+  .head
+    購入を確定しますか？
+  .buy-product
+    .buy-product__inner
+      .product
+        = image_tag @product.image, width: 148
+        %p.product__name.bold
+          = @product.name
+        %p.product__price.bold
+          = price_format(@product.price)
+          %span.product__postage-burden
+            = @product.shipping_burden == "送料込み（出品者負担）" ? "送料込み" : "着払い"
+      %ul.point
+        ポイントはありません
+      .price
+        .price__property.bold
+          支払い金額
+        .price__value.bold
+          = price_format(@product.price)
+      - unless @product.buyer_id
+        = link_to "購入する", purchase_path(@product.id), class: "buy-btn bold", method: :patch
+      - else
+        .sold-btn.bold
+          売り切れました
+  .buyer-info
+    .buyer-info__inner
+      .buyer
+        配送先
+      .buyer__postal-code
+        = "〒" + @user.postal_code
+      .buyer__domicile
+        = @user.domicile_pref + @user.domicile_city + @user.domicile_add + @user&.building
+      .buyer__name
+        = @user.family_name + @user.first_name
+      .change
+        変更する
+        %i.fa.fa-angle-right.change__right
+  .payment-info
+    .payment-info__inner
+      .card
+        支払い方法
+      .card__number
+        = "************" + @card.last4 if @card
+      .card__date
+        = @card.exp_month.to_s + "/" + (@card.exp_year - 2000).to_s if @card
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3708647559", class: "card__company" if @card
+      .change
+        変更する
+        %i.fa.fa-angle-right.change__right
+
+= render "logo/footer"
+
+.overlay
+  #modalwin.modalwin-hide
+    %h1.delete
+      購入が完了しました！
+    %p.delete__text
+    %p.delete__text__confirm
+      購入完了しました。出品者の発送通知をお待ちください。
+    .cancel__btn
+      = link_to "ホーム", root_path, {class: "cancel__btn__back"}
+    .delete__btn
+      = link_to "マイページ", user_path(current_user.id), {class: "cancel__btn__back"}

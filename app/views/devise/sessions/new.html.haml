@@ -8,12 +8,12 @@
       .login-panel__sns
         = link_to user_facebook_omniauth_authorize_path do
           %button#facebook-login.login-panel__sns-facebook
-            = fa_icon "facebook-square"
+            %i.fab.fa-facebook
             Facebookでログイン
 
         = link_to user_google_omniauth_authorize_path do
-          %button#google-login.login-panel__sns-google{:type => ""}
-            = fa_icon "google-plus"
+          %button#google-login.login-panel__sns-google
+            %i.fab.fa-google
             Googleでログイン
       .login-panel__mail
         = form_for(resource, url: new_user_session_path) do |f|

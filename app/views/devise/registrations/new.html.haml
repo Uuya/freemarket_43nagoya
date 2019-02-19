@@ -10,12 +10,12 @@
               %i>
               メールアドレスで登録
           = link_to user_facebook_omniauth_authorize_path do
-            %button#facebook-login.main-section-inner-container-facebook
-              %i>
+            %button#facebook-login.main-section-inner-container-facebook.login-panel__sns-facebook
+              %i.fab.fa-facebook
               Facebookで登録
           = link_to user_google_omniauth_authorize_path do
-            %button#google-login.main-section-inner-container-google
-              %i>
+            %button#google-login.main-section-inner-container-google.login-panel__sns-google
+              %i.fab.fa-google
               Googleで登録
 
   = render 'logo/footer'

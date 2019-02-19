@@ -74,6 +74,10 @@
             margin: 50px 0 0;
           }
         a.left-link {
+          display: inline-block;
+          &:hover {
+            opacity: 0.7;
+          }
           img {
             @include max-screen($sm) {
               width: 70px;
@@ -81,7 +85,11 @@
           }
         }
         a.right-link {
+          display: inline-block;
           margin: 0 0 0 5px;
+          &:hover {
+            opacity: 0.7;
+          }
           img {
             @include max-screen($sm) {
               width: 70px;

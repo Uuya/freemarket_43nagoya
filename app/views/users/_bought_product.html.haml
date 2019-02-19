@@ -1,0 +1,3 @@
+- bought_products.each do |bought_product|
+  %li.myPage__content__top__container__purchase__show__list
+    = link_to "#{bought_product.name}", product_path(bought_product)

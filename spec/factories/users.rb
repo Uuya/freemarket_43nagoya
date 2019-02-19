@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :user do
     nickname              "test"
     sequence(:email) { Faker::Internet.email }

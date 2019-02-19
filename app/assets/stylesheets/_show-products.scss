@@ -9,6 +9,10 @@ a.all-item-link {
   color: #0099e8;
   float: right;
   padding: 0 0 20px 0;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
 }
 
 .edit-container {

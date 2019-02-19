@@ -88,6 +88,10 @@ $xs: 544px;
           display: block;
           color: #0099e8;
           text-decoration: none;
+          &:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+          }
         }
       }
     }
