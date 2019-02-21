@@ -153,19 +153,23 @@
           background: #ea352d;
           border: 1px solid #ea352d;
           color: #fff;
-              display: block;
-              width: 100%;
-              line-height: 48px;
-              font-size: 14px;
-              cursor: pointer;
-              text-align: center;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
         }
         &-form-forgot {
           display: block;
-              margin: 40px 0 0;
-              color: #0099e8;
-              text-decoration: none;
-              cursor: pointer;
+          margin: 40px 0 0;
+          color: #0099e8;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -174,7 +178,7 @@
 
 #footer {
   width: 456px;
-  height: 220px;
+  // height: 220px;
   margin: 0 auto;
   padding: 40px 0;
   text-align: center;

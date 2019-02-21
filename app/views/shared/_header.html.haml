@@ -14,7 +14,7 @@
         - else
           = link_to user_path(current_user.id), class: "main-header__mypage" do
             .right-box-avatar
-              = image_tag ""
+              = image_tag @user&.image ? @user.image : ""
       %form.search-box
         %input.search-form{type: "search", name: "keyword", placeholder: "キーワードから探す"}
         / = form_for [] do |f|
@@ -78,7 +78,7 @@
             %li
               = link_to user_path(current_user.id), class: "main-header__mypage" do
                 .right-box-avatar
-                  = image_tag ""
+                  = image_tag @user&.image ? @user.image : ""
                 .right-box-mypage
                   マイページ
             %li

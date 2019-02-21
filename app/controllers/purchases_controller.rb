@@ -2,8 +2,8 @@ class PurchasesController < ApplicationController
 
   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
 
+  before_action :authenticate_user!
   before_action :set_product, only: [:show, :update]
-  before_action :move_to_user_session, only: [:show, :update]
 
   def show
     customer = Payjp::Customer.retrieve(id: current_user.id.to_s)
@@ -23,13 +23,8 @@ class PurchasesController < ApplicationController
   end
 
 private
-
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def move_to_user_session
-    redirect_to user_session_path unless user_signed_in?
   end
 
 end

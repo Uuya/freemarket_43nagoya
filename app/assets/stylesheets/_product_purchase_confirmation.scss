@@ -7,6 +7,9 @@ main {
   width: 700px;
   margin: 0 auto;
   background: #fff;
+  @include max-screen($sm) {
+    width: 100%;
+  }
 }
 
 .head {

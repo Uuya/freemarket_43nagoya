@@ -96,8 +96,8 @@
           color:#888;
         }
         &-wrap{
-          width:140px;
-          margin-top:8px;
+          width: 23%;
+          margin-top: 8px;
           display: inline-block;
           &-select{
             position: relative;
@@ -186,6 +186,9 @@
           transition: all ease-out .3s;
           cursor: pointer;
           text-align: center;
+          &:hover {
+            opacity: 0.9;
+          }
         }
         &-bottom {
           margin: 40px 0 0;

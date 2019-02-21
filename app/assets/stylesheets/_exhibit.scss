@@ -59,18 +59,29 @@
     width: 700px;
     margin: 0 auto;
     background: #fff;
+    @include max-screen($sm) {
+      width: 100%;
+    }
     h2 {
       padding: 32px 16px;
       font-size: 22px;
+      font-weight: bold;
       line-height: 1.5;
       text-align: center;
       margin: 0;
+      @include max-screen($sm) {
+        padding: 24px 8px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+      }
     }
     &__inner {
       padding: 40px;
       border-top: 1px solid #eee;
         p {
           line-height: 1.5;
+          margin: 8px 0 0;
         }
       &__group{
         margin: 40px 0 0;
@@ -123,6 +134,9 @@
           float: right;
           width: 400px;
           margin: 0;
+          @include max-screen($sm) {
+            width: 100%;
+          }
 
           &__group{
             margin: 40px 0 0;
@@ -147,7 +161,7 @@
             &__left{
               float: left;
               width: 50%;
-
+              line-height: 48px;
               &__subCategory{
                 font-weight: bold;
                 width: 50%;
@@ -169,7 +183,7 @@
               &__price{
                 margin: 0 0 0 5%;
                 text-align: right;
-                width: 80%;
+                width: 85%;
                 height: 48px;
                 padding: 10px 16px 8px;
                 border-radius: 4px;
@@ -283,6 +297,7 @@ select{
   position: relative;
   z-index: 2;
   height: 48px;
+  margin: 8px 0 0;
   padding: 0 16px;
   border-radius: 4px;
   border: 1px solid #ccc;

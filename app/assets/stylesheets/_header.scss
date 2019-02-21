@@ -166,10 +166,16 @@ a {
     }
     li.list-nav:hover {
       ul.category {
-      visibility: visible;
+        visibility: visible;
+        @include max-screen($xs) {
+          visibility: hidden;
+        }
       }
       ul.brand {
-      visibility: visible;
+        visibility: visible;
+        @include max-screen($xs) {
+          visibility: hidden;
+        }
       }
     }
   }

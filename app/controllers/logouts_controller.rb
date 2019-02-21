@@ -1,4 +1,5 @@
 class LogoutsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: :show
 
   def show
